@@ -41,7 +41,7 @@ function Nav() {
           {!userData ? <span className='px-[20px] py-[10px] border-2 border-white text-white rounded-[10px] text-[18px] font-light cursor-pointer bg-[#5d8452]' onClick={() => navigate("/login")}>Login</span> :
             <span className='px-[20px] py-[10px] bg-white text-black rounded-[10px] shadow-sm shadow-black text-[18px] cursor-pointer' onClick={handlelogout}>LogOut</span>}
           {show && <div className='absolute top-[110%] right-[15%] flex items-center flex-col justify-center gap-2 text-[16px] rounded-md bg-[white] px-[15px] py-[10px] border-[2px] border-black hover:border-white hover:text-white cursor-pointer hover:bg-black '>
-            <span className='bg-[black] text-white px-[30px] py-[10px] rounded-2xl hover:bg-gray-600'>My Profile</span>
+            <span className='bg-[black] text-white px-[30px] py-[10px] rounded-2xl hover:bg-gray-600' onClick={()=>navigate("/profile")} >My Profile</span>
             <span className='bg-[black] text-white px-[30px] py-[10px] rounded-2xl hover:bg-gray-600'>My Courses</span>
           </div>}
         </div>
@@ -50,7 +50,7 @@ function Nav() {
           <GiSplitCross className='w-[35px] h-[35px] fill-white absolute top-5 right-[4%]' onClick={() => Setshowham(prev => !prev)} />
           {!userData && <IoPersonCircle className='w-[50px] h-[50px] fill-[#5d8452] cursor-pointer'  />}
           {userData && <div className='w-[50px] h-[50px] rounded-full text-white flex items-center justify-center text-[20px] border-2 bg-black border-white cursor-pointer' >{userData?.name.slice(0, 1).toUpperCase()}</div>}
-          <div className='w-[200px] h-[65px] border-2 border-white text-white bg-[#5d8452] rounded-[10px] flex items-center justify-center text-[18px] font-light cursor-pointer'>My Profile</div>
+          <div className='w-[200px] h-[65px] border-2 border-white text-white bg-[#5d8452] rounded-[10px] flex items-center justify-center text-[18px] font-light cursor-pointer' onClick={()=>navigate("/profile")} >My Profile</div>
           <div className='w-[200px] h-[65px] border-2 border-white text-white bg-[#5d8452] rounded-[10px] flex items-center justify-center text-[18px] font-light cursor-pointer'>My Courses</div>
           {userData?.role === "educator" && <div className='w-[200px] h-[65px] border-2 border-white flex items-center justify-center text-white bg-[#5d8452] rounded-[10px] text-[18px] font-light cursor-pointer'>Dasboard</div>}
 
