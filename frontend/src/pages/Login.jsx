@@ -44,7 +44,7 @@ function Login() {
             let email = user.email
             let role = ""
 
-            const result = await axios.post(serverUrl + "/api/auth/googleauth", { name, email, role }, { withCredentials: true })
+            await axios.post(serverUrl + "/api/auth/googleauth", { name, email, role }, { withCredentials: true })
             navigate("/")
             toast.success("Login Successful")
         } catch (error) {
