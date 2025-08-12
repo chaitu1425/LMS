@@ -27,7 +27,17 @@ const UserSchema = new mongoose.Schema({
     enrolledcourse:[{
         type:mongoose.Schema.Types.ObjectId,
         ref: "Course"
-    }]
+    }],
+    resetOtp:{
+        type:String
+    },
+    otpExpires:{
+        type:Date
+    },
+    isOtpverifed:{
+        type:Boolean,
+        default:false
+    }
 
 
 },{timestamps:true})

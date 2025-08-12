@@ -8,6 +8,7 @@ import { ToastContainer } from 'react-toastify';
 import getCurrentUser from './customHooks/getCurrentUser'
 import { useSelector } from 'react-redux'
 import Profile from './pages/Profile'
+import Forgotpass from './pages/Forgotpass'
 function App() {
   getCurrentUser()
   const {userData} = useSelector(state=>state.user)
@@ -19,6 +20,8 @@ function App() {
         <Route path='/signup' element={!userData ? <Signup/> : <Navigate to={"/"} />} />
         <Route path='/login' element={<Login/>}/>
         <Route path='/profile' element={ userData ? <Profile/> : <Navigate to={"/signup"}/>}/>
+        <Route path='/forgot' element={ userData ? <Forgotpass/> : <Navigate to={"/login"}/>}/>
+
       </Routes> 
     </>
   )

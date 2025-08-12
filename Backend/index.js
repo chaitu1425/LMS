@@ -21,8 +21,8 @@ app.get("/",(req,res)=>{
     res.send("hello");
 })
 
-app.listen(process.env.PORT,()=>{
-    console.log("Server running");
+app.listen(process.env.PORT ,()=>{
+    console.log(`Server running ${process.env.PORT}`);
     connectdb()
     
 })
