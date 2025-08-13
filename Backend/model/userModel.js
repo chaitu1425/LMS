@@ -6,6 +6,9 @@ const UserSchema = new mongoose.Schema({
         type:String,
         required:true
     },
+    description:{
+        type:String
+    },
     email:{
         type:String,
         required:true,
@@ -19,7 +22,7 @@ const UserSchema = new mongoose.Schema({
         enum:["student","educator"],
         required:true
     },
-    photourl:{
+    photoUrl:{
         type:String,
         default:""
     },
