@@ -7,6 +7,7 @@ import ai1 from "../assets/SearchAi.png"
 
 import { SiViaplay } from "react-icons/si";
 import Logos from '../component/Logos'
+import ExploreCourses from '../component/ExploreCourses'
 const Home = () => {
     return (
         <div className='w-[100%] overflow-hidden' >
@@ -28,6 +29,7 @@ const Home = () => {
                 </div>
             </div>
                 <Logos/>
+                <ExploreCourses/>
         </div>
     )
 }
