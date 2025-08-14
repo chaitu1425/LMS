@@ -10,8 +10,14 @@ import { useSelector } from 'react-redux'
 import Profile from './pages/Profile'
 import Forgotpass from './pages/Forgotpass'
 import EditProfile from './pages/EditProfile'
+import Dashboard from './pages/educator/Dashboard'
+import Courses from './pages/educator/Courses'
+import EditCourses from './pages/educator/EditCourses'
+import CreateCourses from './pages/educator/CreateCourses'
+import getCreatorCourse from './customHooks/getCreatorCourse'
 function App() {
   getCurrentUser()
+  getCreatorCourse()
   const {userData} = useSelector(state=>state.user)
   return (
     <>
@@ -24,6 +30,10 @@ function App() {
         <Route path='/forgot' element={ userData ? <Forgotpass/> : <Navigate to={"/signup"}/>}/>
         <Route path='/editprofile' element={ userData ? <EditProfile/> : <Navigate to={"/signup"}/>}/>
 
+        <Route path='/dashboard' element={ userData?.role === "educator"? <Dashboard/> : <Navigate to={"/signup"}/>}/>
+        <Route path='/courses' element={ userData?.role === "educator"? <Courses/> : <Navigate to={"/signup"}/>}/>
+        <Route path='/createcourse' element={ userData?.role === "educator"? <CreateCourses/> : <Navigate to={"/signup"}/>}/>
+        <Route path='/editcourses/:courseId' element={ userData?.role === "educator"? <EditCourses/> : <Navigate to={"/signup"}/>}/>
       </Routes> 
     </>
   )
