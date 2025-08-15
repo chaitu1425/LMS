@@ -21,7 +21,7 @@ export const createCourse = async (req,res)=>{
 
 export const getPublishedCourses = async(req,res)=>{
     try {
-        const courses = await Course.find({isPubllished:true})
+        const courses = await Course.find({isPublished:true})
         if(!courses){
             return res.status(400).json({message:"Courses Not Found"})
         }
@@ -49,7 +49,7 @@ export const getCreatorCourses = async(req,res)=>{
 export const editCourse = async(req,res)=>{
     try{
         const {courseId} = req.params
-        const {title,subTitle,description,category,level,isPubllished,price} = req.body
+        const {title,subTitle,description,category,level,isPublished,price} = req.body
         let thumbnail
         if(req.file){
             thumbnail = await uploadOnCloudinary(req.file.path)
@@ -59,7 +59,7 @@ export const editCourse = async(req,res)=>{
         if(!course){
             return res.status(400).json({message:"Course is not Found"})
         }
-        const updateData = {title,subTitle,description,category,level,isPubllished,price,thumbnail}
+        const updateData = {title,subTitle,description,category,level,isPublished,price,thumbnail}
         course = await Course.findByIdAndUpdate(courseId,updateData,{new:true})
         return res.status(200).json(course)
     }catch(error){
@@ -76,7 +76,7 @@ export const getCourseById = async(req,res)=>{
         }
         return res.status(200).json(course)
     } catch (error) {
-        return res.status(500).json({message:`failed to get Course ${error}`})
+        return res.status(500).json({message:`failed to get Course by Id ${error}`})
     }
 }
 
@@ -88,7 +88,7 @@ export const removeCourse = async(req,res)=>{
         if(!course){
             return res.status(400).json({message:"Course is not found"})
         }   
-        course = await Course.findOneAndDelete(courseId , {new:true})
+        course = await Course.findByIdAndDelete(courseId , {new:true})
         return res.status(200).json({message:"Course Removed"})
     } catch (error) {
         return res.status(500).json({message:`failed to delete Course ${error}`})

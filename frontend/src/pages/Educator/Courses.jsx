@@ -9,7 +9,6 @@ import { serverUrl } from '../../App';
 import axios from 'axios';
 import { setcreatorCourseData } from '../../redux/courseSlice';
 function Courses() {
-
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const userData = useSelector(state=>state.user)
@@ -51,7 +50,7 @@ function Courses() {
                 <tbody >
                     {creatorCourseData?.map((course,index)=>(
                     <tr key={index} className='border-b hover:bg-gray-50 transition duration-200'>
-                        <td className='py-3 px-4 flex items-center gap-4 '>{course?.thumbail?<img src={course?.thumbail} className='w-25 h-14 object-cover rounded-md ' alt="" />:<img src={img} className='w-25 h-14 object-cover rounded-md ' alt="" />}
+                        <td className='py-3 px-4 flex items-center gap-4 '>{course?.thumbnail?<img src={course?.thumbnail} className='w-25 h-14 object-cover rounded-md ' alt="" />:<img src={img} className='w-25 h-14 object-cover rounded-md ' alt="" />}
                         <span>{course?.title}</span></td>
                         {course?.price ? <td className='px-4 py-3'>₹{course?.price}</td>:
                         <td className='px-4 py-3'>₹ NA</td>}

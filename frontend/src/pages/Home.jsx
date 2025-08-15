@@ -3,12 +3,12 @@ import Nav from '../component/Nav'
 import home from "../assets/home1.jpg"
 import ai from "../assets/ai.png"
 import ai1 from "../assets/SearchAi.png"
-
-
 import { SiViaplay } from "react-icons/si";
 import Logos from '../component/Logos'
 import ExploreCourses from '../component/ExploreCourses'
+import CardPage from '../component/CardPage'
 const Home = () => {
+    
     return (
         <div className='w-[100%] overflow-hidden' >
             <div className='w-[100%] lg:h-[140vh] h-[70vh] relative'>
@@ -24,12 +24,13 @@ const Home = () => {
                     </button>
                     <button className='px-[20px] py-[10px] lg:bg-white bg-black lg:text-black text-white rounded-[10px] text-[18px] font-light flex gap-2 cursor-pointer items-center justify-center'>Search With AI
                         <img src={ai} className='w-[30px] h-[30px] rounded-full hidden lg:block ' alt="" />
-                        <img src={ai1} className='w-[35px] h-[35px] rounded-full lg:hidden' alt="" />
+                        <img src={ai1} className='w-[35px] h-[35px] rounded-full lg:hidden' alt=""/>
                     </button>
                 </div>
             </div>
-                <Logos/>
-                <ExploreCourses/>
+            <Logos />
+            <ExploreCourses />
+            <CardPage />
         </div>
     )
 }
