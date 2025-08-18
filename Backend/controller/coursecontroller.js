@@ -116,7 +116,7 @@ export const createLecture = async(req,res)=>{
         }
         await course.populate("lectures")
         await course.save()
-        return res.status(200).json(lecture, course)
+        return res.status(201).json({lecture,course})
     } catch (error) {
         return res.status(500).json({message:`failed to create lecture ${error}`})
     }
