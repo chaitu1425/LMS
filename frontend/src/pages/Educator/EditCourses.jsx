@@ -130,8 +130,7 @@ function EditCourses() {
         <FaArrowLeftLong className='top-[-20%] md:top-[20%] absolute left-[0] md:left-[2%] w-[22px] h-[22px] cursor-pointer' onClick={() => navigate("/courses")} />
         <h2 className='text-2xl font-semibold md:pl-[60px] '>Add Details  regarding  the course</h2>
         <div className='space-x-2 space-y-2'>
-          <button className='bg-black text-white px-4 py-2 rounded-md'>Go to Lecture page</button>
-
+          <button className='bg-black text-white px-4 py-2 rounded-md' onClick={()=>navigate(`/createlecture/${selectCourseData?._id}`)}>Go to Lecture page</button>
         </div>
       </div>
       {/* form details */}
