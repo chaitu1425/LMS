@@ -168,7 +168,7 @@ export const removeLecture = async(req,res)=>{
     try {
         const {lectureId} = req.params
         const lecture = await Lecture.findByIdAndDelete(lectureId)
-        if(lecture){
+        if(!lecture){
             return res.status(404).json({message:"Lecture is Not Found"})
         }
         await Course.updateOne(

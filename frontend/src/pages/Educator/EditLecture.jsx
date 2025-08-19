@@ -7,6 +7,7 @@ import { setlectureData } from '../../redux/LectureSlice';
 import { toast } from 'react-toastify';
 import axios from 'axios';
 import { ClipLoader } from 'react-spinners';
+import { BiLoader } from 'react-icons/bi';
 
 function EditLecture() {
     const {courseId , lectureId} = useParams()
@@ -41,9 +42,21 @@ function EditLecture() {
         }
     }
 
-    // const removeLecture = async()=>{
+    const removeLecture = async()=>{
+        setLoading1(true)
+        try {
+            const result = await axios.delete(serverUrl+`/api/course/removelecture/${lectureId}`,{withCredentials:true})
+            console.log(result.data)
+            navigate(`/createlecture/${courseId}`)
+            toast.success("Lecture Removed")
+            setLoading1(false)
+        } catch (error) {
+            setLoading1(false)
+            console.log(error)
+            toast.error(error.response.data.message)
+        }
 
-    // }
+    }
   return (
     <div className='min-h-screen bg-gray-100 flex items-center justify-center p-4'>
         <div className='w-full max-w-xl bg-white rounded-xl shadow-lg p-6 space-y-6'>
@@ -52,7 +65,7 @@ function EditLecture() {
                 <FaArrowLeftLong className='text-gray-600 cursor-pointer' onClick={()=>navigate(`/createlecture/${courseId}`)}/>
                 <h2 className='text-xl font-semibold text-gray-800'>Update Course Lecture</h2>
             </div>
-            <button className='mt-2 px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 transition-all text-sm' >Remove Lecture</button>
+            <button className='mt-2 px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 transition-all text-sm' disabled={loading1} onClick={removeLecture}>{loading1?<ClipLoader size={30} color='white' />:"Remove Lecture"}</button>
 
             <div className='space-y-4'>
                 <div>
