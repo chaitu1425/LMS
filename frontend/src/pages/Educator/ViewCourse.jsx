@@ -52,7 +52,7 @@ function ViewCourse() {
 
     useEffect(()=>{
         fetchCourseData()
-    },[])
+    },[courseId])
 
     useEffect(()=>{
         if(creatorData?._id && courseData.length > 0){
@@ -65,7 +65,7 @@ function ViewCourse() {
         <div className='min-h-screen bg-gray-50 p-6'>
             <div className='max-w-6xl mx-auto bg-white shadow-md rounded-xl p-6 space-y-6 relative'>
                 {/* top section */}
-                <div className='flex flex-col md:flex-row gap-6'>
+                <div className='flex flex-col md:flex-row gap-6'> 
                     {/* thumbnail */}
                     <div className='w-full md:w-1/2 '>
                         <FaArrowLeftLong className='text-[black] w-[22px] h-[22px] cursor-pointer' onClick={() =>navigate('/')} />
@@ -168,7 +168,7 @@ function ViewCourse() {
                 <div className='w-full transition-all duration-300 py-[20px] flex items-start justify-center lg:justify-start flex-wrap gap-6 lg:px-[80px]'>
                     {
                         creatorCourseData?.map((course,index)=>(
-                            <Card key={index} thumbnail={course.thumbnail} id={course._id} price={course.price} title={course.title} category={course.category}/>
+                            <Card key={index} thumbnail={course.thumbnail} title={course.title} category={course.category} price={course.price} id={course._id}  />
                         ))
                     }
                 </div>

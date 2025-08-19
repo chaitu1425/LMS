@@ -20,14 +20,17 @@ import AllCourses from './pages/AllCourses'
 import CreateLecture from './pages/Educator/CreateLecture'
 import EditLecture from './pages/Educator/EditLecture'
 import ViewCourse from './pages/Educator/ViewCourse'
+import Scrolltotop from './component/Scrolltotop'
 function App() {
   getCurrentUser()
   getCreatorCourse()
   getPublishedCourse()
+  
   const {userData} = useSelector(state=>state.user)
   return (
     <>
       <ToastContainer/>
+      <Scrolltotop />
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/signup' element={!userData ? <Signup/> : <Navigate to={"/"} />} />
