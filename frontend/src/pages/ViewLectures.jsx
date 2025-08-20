@@ -67,7 +67,17 @@ function ViewLectures() {
                     : <p className='text-gray-500'>No lectures available.</p>
                 }
             </div>
-
+            {/* Educator info */}
+            {creatorData && <div className='mt-4 border-t pt-4'>
+                <h3 className='text-md font-semibold text-gray-700 mb-3'>Educator</h3>
+                <div className='flex items-center gap-4'><img src={creatorData?.photoUrl} className='w-14 h-14 rounded-full object-cover'/>
+                <div>
+                    <h2 className='font-medium text-gray-800'>{creatorData?.name}</h2>
+                    <p className='text-sm text-gray-600'>{creatorData?.description}</p>
+                    <p className='text-sm text-gray-600'>{creatorData?.email}</p>
+                </div>
+                </div>
+            </div>}
         </div>
     </div>
   )
