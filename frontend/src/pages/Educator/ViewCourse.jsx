@@ -24,6 +24,7 @@ function ViewCourse() {
     const [selectedLecture,setSelectedLecture] = useState(null)
     const [creatorData,setCreatorData] = useState(null)
     const [creatorCourseData,setCreatorCourseData] = useState(null)
+    const [isEnrolled,setIsEnrolled] = useState(false)
 
     const fetchCourseData = async()=>{
         courseData.map((course)=>{
@@ -34,6 +35,7 @@ function ViewCourse() {
             } 
         })
     }
+
     useEffect(()=>{
         const handleCreator =async()=>{
             if(selectedCourse?.creator){
@@ -51,7 +53,8 @@ function ViewCourse() {
 
     useEffect(()=>{
         fetchCourseData()
-    },[courseId])
+        checkEnrollment()
+    },[courseData,courseId,userData])
 
     useEffect(()=>{
         if(creatorData?._id && courseData.length > 0){
@@ -60,6 +63,17 @@ function ViewCourse() {
             setCreatorCourseData(creatorCourse)
         }
     },[creatorData,courseData])
+
+    
+    const checkEnrollment = ()=>{
+        const verify = userData?.enrolledcourse?.some(c => (typeof c === 'string' ? c : c._id).toString() === courseId?.toString())
+        if(verify){
+            setIsEnrolled(true)
+        }else{
+            setIsEnrolled(false)
+        }
+    }
+
 
     const handleEnroll =async (userId,courseId)=>{
         try {
@@ -76,7 +90,9 @@ function ViewCourse() {
                     console.log("Razorpay Response:",response)
                     try{
                         const verifyPayment =await axios.post(serverUrl+'/api/order/verifypayment',{...response,courseId,userId},{withCredentials:true})
+                         setIsEnrolled(true)
                         toast.success(verifyPayment.data.message)
+
                     }catch(error){
                         toast.error(error.response.data.message)
                         toast.error("Something went wrong while enrolling.")
@@ -119,7 +135,7 @@ function ViewCourse() {
                                 <li>✅ 10+ hours of video content</li>
                                 <li>✅ Lifetime access to course materials</li>
                             </ul>
-                            <button className='bg-[black] text-white px-6 py-2 rounded hover:bg-gray-700 mt-3 cursor-pointer' onClick={()=>handleEnroll(userData._id,courseId)}>Enroll Now</button>
+                        {!isEnrolled? <button className='bg-[black] text-white px-6 py-2 rounded hover:bg-gray-700 mt-3 cursor-pointer' onClick={()=>handleEnroll(userData._id,courseId)}>Enroll Now</button>:<button className='bg-green-100 text-green-500 px-6 py-2 rounded hover:bg-green-200 mt-3 cursor-pointer' onClick={()=>navigate(`/viewlecture/${courseId}`)}>Watch Now</button>}
                         </div>
                     </div> 
                 </div>
