@@ -61,6 +61,15 @@ function ViewCourse() {
             setCreatorCourseData(creatorCourse)
         }
     },[creatorData,courseData])
+
+    const handleEnroll =async (userId,courseId)=>{
+            try {
+                
+            } catch ( ) {
+                
+            }
+
+    }
     return (
         <div className='min-h-screen bg-gray-50 p-6'>
             <div className='max-w-6xl mx-auto bg-white shadow-md rounded-xl p-6 space-y-6 relative'>
@@ -92,7 +101,7 @@ function ViewCourse() {
                             </ul>
                             <button className='bg-[black] text-white px-6 py-2 rounded hover:bg-gray-700 mt-3 cursor-pointer'>Enroll Now</button>
                         </div>
-                    </div>
+                    </div> 
                 </div>
                 {/* bottom section */}
                 <div >
