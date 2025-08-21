@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { FaArrowLeftLong } from "react-icons/fa6";
-import Card from '../component/Card';
+
 
 function MyEnrolledCourse() {
     const {userData} = useSelector(state=>state.user)
