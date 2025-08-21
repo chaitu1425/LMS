@@ -20,8 +20,15 @@ function MyEnrolledCourse() {
                 <div className='flex items-center justify-center flex-wrap gap-[30px]'>
                     {
                         userData?.enrolledcourse?.map((course,index)=>(
-                            <div key={index} className='bg-white rounde-2xl shadow-md overflow-hidden border'>
-                                <img src={course?.thumbnail} alt="" className='w-[200px] h-40 object-cover' />
+                            <div key={index} className='bg-white rounded-2xl shadow-md overflow-hidden border '>
+                                <img src={course?.thumbnail} alt="" className='w-[300px] h-40 object-cover' />
+                                <div className='p-4'>
+                                    <h2 className='text-lg font-semibold text-gray-800 '>{course?.title}</h2>
+                                    <p className='text-sm text-gray-600 mb-2'>{course?.category}</p>
+                                    <p className='text-sm text-gray-600 mb-2'>{course?.level}</p>
+                                    <h1 className='px-[10px] text-center justify-center py-[10px] border-2 bg-black border-black text-white rounded-[10px] text-[15px] font-light flex items-center gap-2 cursor-pointer
+                                     mt-[10px] hover:bg-gray-600' onClick={()=>navigate(`/viewlecture/${course._id} `)}>Watch Now</h1>
+                                </div>
                             </div>
                         ))
                     }
