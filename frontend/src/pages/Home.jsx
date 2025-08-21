@@ -6,8 +6,10 @@ import ai1 from "../assets/SearchAi.png"
 import { SiViaplay } from "react-icons/si";
 import Logos from '../component/Logos'
 import ExploreCourses from '../component/ExploreCourses'
+import About from './About'
 import CardPage from '../component/CardPage'
 import { useNavigate } from 'react-router-dom'
+import Footer from './Footer'
 const Home = () => {
     const navigate = useNavigate()
     
@@ -33,6 +35,8 @@ const Home = () => {
             <Logos />
             <ExploreCourses />
             <CardPage />
+            <About/>
+            <Footer/>
         </div>
     )
 }
