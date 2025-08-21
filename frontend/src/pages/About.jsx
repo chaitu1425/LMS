@@ -22,7 +22,7 @@ function About() {
                 <div className='md:text-[45px] text-[35px] font-semibold'>We Maximize Your Learning Growth</div>
 
                 <div className='text-[15px] '>We provide a modern Learing Management System to simplify online education , track progress and enhance student-instructor collaboration effeciently.</div>
-                <div className='w-[100%] lg:w-[60%] cursor-pointer'>
+                <div className='w-[100%] lg:w-[60%]'>
                     <div className='flex items-center justify-between mt-[40px]'>
                         <div className='flex items-center justify-center gap-[10px] '>
                             <BsFillPatchCheckFill className='w-[20px] h-[20px]'/>Simplified Learning

@@ -22,7 +22,7 @@ export const createCourse = async (req,res)=>{
 
 export const getPublishedCourses = async(req,res)=>{
     try {
-        const courses = await Course.find({isPublished:true}).populate("lectures")
+        const courses = await Course.find({isPublished:true}).populate("lectures reviews")
         if(!courses){
             return res.status(400).json({message:"Courses Not Found"})
         }
@@ -171,7 +171,7 @@ export const removeLecture = async(req,res)=>{
         if(!lecture){
             return res.status(404).json({message:"Lecture is Not Found"})
         }
-        await Course.updateOne(
+        await Course.updateMany(
             {lectures:lectureId},
             {$pull:{lectures:lectureId}}
         )
