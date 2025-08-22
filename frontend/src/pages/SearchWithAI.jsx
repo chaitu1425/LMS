@@ -62,7 +62,7 @@ function SearchWithAI() {
         <div className='min-h-screen bg-gradient-to-br from-black to-gray-900 text-white flex flex-col items-center px-4 py-16'>
             {/* searchComponen */}
             <div className='bg-white shadow-xl rounded-3xl p-6 sm:p-8 w-full max-w-2xl text-center relative'>
-                <FaArrowLeftLong className='text-[black] w-[22px] h-[22px] cursor-pointer absolute ' />
+                <FaArrowLeftLong className='text-[black] w-[22px] h-[22px] cursor-pointer absolute ' onClick={()=>navigate('/')} />
                 <h1 className='text-2xl sm:text-3xl font-bold text-gray-600 mb-6 flex items-center justify-center gap-2'><img src={img} className='w-8 h-8 sm:w-[30px]' alt="" />Search with<span className='text-[#CB99c7]'>AI</span></h1>
                 <div className='flex items-center bg-gray-700 rounded-full overflow-hidden shadow-lg relative w-full'>
                     <input type="text" className='flex-grow px-4 py-3 bg-transparent text-white placeholder-gray-400 focus:outline-none text-sm sm:text-base' placeholder='What do you want to learn?(e.g. AI,MERN,Cloud...)' value={input} onChange={(e) => setInput(e.target.value)} />
