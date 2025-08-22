@@ -3,7 +3,7 @@ import { Navigate, Route , Routes } from 'react-router-dom'
 import Home from './pages/Home'
 import Signup from './pages/Signup'
 import Login from './pages/Login'
-export const serverUrl="https://lms-m4kg.onrender.com"
+export const serverUrl="http://localhost:8000"
 import { ToastContainer } from 'react-toastify';
 import getCurrentUser from './customHooks/getCurrentUser'
 import { useSelector } from 'react-redux'
