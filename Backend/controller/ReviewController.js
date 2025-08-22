@@ -20,20 +20,19 @@ export const createReview = async(req,res)=>{
             comment
         })
         await review.save()
-        await course.reviews.push(review._id)
+        course.reviews.push(review._id)
         await course.save()
         return res.status(201).json(review)
     } catch (error) {
-        return res.status(500).json({message:`failed to create review ${error}`})
+        return res.status(500).json({message:`Failed to create review ${error}`})
     }
 }
 
 export const getReviews = async(req,res)=>{
     try{
-        const review = await Review.find({}).populate("user","name,photoUrl,role").sort({reviewedAt : -1})
+        const review = await Review.find({}).populate("user course").sort({reviewedAt : -1})
         return res.status(200).json(review)
     }catch(error){
         return res.status(500).json({message:`failed to get review ${error}`})
-
     }
 }
