@@ -244,7 +244,7 @@ function ViewCourse() {
                 <div className='w-full transition-all duration-300 py-[20px] flex items-start justify-center lg:justify-start flex-wrap gap-6 lg:px-[80px]'>
                     {
                         creatorCourseData?.map((course,index)=>(
-                            <Card key={index} thumbnail={course.thumbnail} title={course.title} category={course.category} price={course.price} id={course._id}  />
+                            <Card key={index} thumbnail={course.thumbnail} title={course.title} category={course.category} price={course.price} id={course._id} reviews={course.reviews} />
                         ))
                     }
                 </div>
