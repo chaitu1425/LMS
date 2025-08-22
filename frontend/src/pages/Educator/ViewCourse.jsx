@@ -135,6 +135,7 @@ function ViewCourse() {
         return (total/reviews.length).toFixed(1)
     }
     const avgRating = calculateReviews(selectedCourse?.reviews)
+    
 
     return (
         <div className='min-h-screen bg-gray-50 p-6'>
@@ -154,7 +155,7 @@ function ViewCourse() {
                         <div className='flex items-start flex-col justify-between'>
                             <div className='text-yellow-500 font-medium flex gap-2'>
                                 <span className='flex items-center justify-start gap-1 '><FaStar/>{avgRating}</span>
-                                <span className='text-gray-400'>(1,200 Reviews)</span>
+                                <span className='text-gray-400'>({selectedCourse?.reviews?.length} Reviews)</span>
                             </div>
                             <div >
                                 <span className='text-xl font-semibold text-black'>₹{selectedCourse?.price}</span>{"  "}
