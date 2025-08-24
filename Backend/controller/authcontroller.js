@@ -26,7 +26,6 @@ export const Signup = async (req, res) => {
             role
         })
         let token = await gentoken(user._id)
-
         res.cookie("token", token, {
             httpOnly: true,
             secure: true,
@@ -59,7 +58,6 @@ export const login = async (req, res) => {
             maxAge: 7 * 24 * 60 * 60 * 1000
         })
         return res.status(201).json(user)
-
     } catch (err) {
         return res.status(400).json({ message: `Login error ${err}` })
     }
@@ -104,9 +102,7 @@ export const verifyOTP = async (req, res) => {
             user.isOtpverifed = true,
             user.resetOtp = undefined,
             user.otpExpires = undefined
-
         await user.save()
-
         return res.status(200).json({ message: "OTP Verified Successfully" })
     } catch (error) {
         return res.status(400).json({ message: `Verify OTP error ${error}`})
